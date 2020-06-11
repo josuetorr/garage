@@ -1,12 +1,10 @@
-import bluetooth as bt
+from bluetooth import *
 
-bd_addr = "01:23:45:67:89:AB"
+rpi_addr = "B8:27:EB:B0:CD:7A"
 
 port = 1
 
-sock = bt.BluetoothSocket(bt.RFCOMM)
-sock.connect((bd_addr, port))
-
-sock.send("Hello from a Bluetooth connection :) !")
-
-sock.close()
+s = BluetoothSocket(RFCOMM)
+s.connect((rpi_addr, port))
+s.send("Hola madre sos fea... ugh I mean bonita :)")
+s.close()
