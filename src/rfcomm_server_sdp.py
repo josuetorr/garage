@@ -1,15 +1,19 @@
 import bluetooth as bt
 
 server_socket = bt.BluetoothSocket(bt.RFCOMM)
-
-port = bt.get_available_port(bt.RFCOMM)
-server_socket.bind(("", port))
+server_socket.bind(("", bt.PORT_ANY))
 server_socket.listen(1)
+
+port = server_socket.getsockname()[1]
 
 print("listening on port %d" % port)
 
-uuid = "1e0ca4ea-299d-4335-93eb-27fcfe7fa848"
-bt.advertise_service(server_socket, "FooBar service", uuid)
+uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
+bt.advertise_service(server_socket, "FooBar service", service_id=uuid,
+                     service_classes=[uuid, bt.SERIAL_PORT_CLASS],
+                     profiles=[bt.SERIAL_PORT_PROFILE])
+
+print("listening on port %d" % port)
 
 client_socket, address = server_socket.accept()
 print("Accepted connection from", address)
