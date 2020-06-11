@@ -2,7 +2,8 @@ import sys
 import bluetooth as bt
 
 uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
-service_matches = bt.find_service(uuid)
+name = "FooBar service"
+service_matches = bt.find_service(name, uuid)
 
 if (len(service_matches)) == 0:
     print("couldn't find the FooBar service")
