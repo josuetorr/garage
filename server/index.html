@@ -1,0 +1,28 @@
+<form id="form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="username...">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="password">
+    <button type="submit" id="submit">Submit</button>
+</form>
+
+<script>
+    const submitButton = document.querySelector('#submit');
+
+    submitButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const form = document.querySelector('#form');
+        const data = {
+            username: form[0].value,
+            password: form[1].value
+        };
+
+        console.log(data);
+        const jsonString = JSON.stringify(data);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/");
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.send(jsonString);
+    });
+</script>
