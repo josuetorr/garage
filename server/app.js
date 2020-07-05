@@ -12,12 +12,7 @@ app.use(bodyParser.json());
 // Setting static content
 app.use(express.static(path.join(__dirname, './')));
 
-// app.get('/', (req, res) => {
-//     res.send('<h1>Hello from NODE</h1>');
-//     res.status(200);
-// });
-
-
+// Read user info
 const data = {};
 fs.readFile('user.test', 'utf8', (err, info) => {
     if(err) {
