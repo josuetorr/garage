@@ -1,3 +1,0 @@
-- Pair our devices with the RPI
-- Once connected, phones will send a signal to the RPI
-- Depending on the garage door model, RPI will have to generate a given signal which will me sent to the garage door receiver 

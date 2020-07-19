@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Node app using Docker and MongoDB</title>
+</head>
+<body>
+    <h1>My Node APP</h1>
+    <form method="post" action="/item/add">
+        <label for="name">Item</label>
+        <input type="text" name="name">
+        <button type="submit" value="add">Add</button>
+    </form>
+    <h4>Items:</h4>
+    <ul>
+        {{#items}}
+            <li>{{name}} <button type="submit" value="remove">X</button></li>
+        {{/items}}
+    </ul>
+</body>
+</html>
